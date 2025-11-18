@@ -1,11 +1,11 @@
 <template>
   <div class="portfolio-website min-h-screen w-full">
     <div class="app w-full">
-      <SectionSubsection />
-      <SectionWrapperSubsection />
-      <ContainerWrapperSubsection />
-      <DivWrapperSubsection />
-      <DivSubsection />
+      <HeroSection />
+      <AboutSection />
+      <SkillsSection />
+      <PortfolioSection />
+      <ContactSection />
       <FooterSubsection />
     </div>
 
@@ -17,19 +17,19 @@
       </div>
 
       <div class="container-44">
-        <button class="button-5">
+        <button class="button-5" @click="scrollToSection('about')">
           <div class="text-wrapper-42">About</div>
         </button>
 
-        <button class="button-6">
+        <button class="button-6" @click="scrollToSection('skills')">
           <div class="text-wrapper-42">Skills</div>
         </button>
 
-        <button class="button-7">
+        <button class="button-7" @click="scrollToSection('portfolio')">
           <div class="text-wrapper-42">Portfolio</div>
         </button>
 
-        <button class="button-8">
+        <button class="button-8" @click="scrollToSection('contact')">
           <div class="text-wrapper-43">Contact Me</div>
         </button>
       </div>
@@ -38,21 +38,21 @@
 </template>
 
 <script>
-import SectionSubsection from '../components/SectionSubsection.vue';
-import SectionWrapperSubsection from '../components/SectionWrapperSubsection.vue';
-import ContainerWrapperSubsection from '../components/ContainerWrapperSubsection.vue';
-import DivWrapperSubsection from '../components/DivWrapperSubsection.vue';
-import DivSubsection from '../components/DivSubsection.vue';
+import PortfolioSection from '../components/PortfolioSection.vue';
+import ContactSection from '../components/ContactSection.vue';
 import FooterSubsection from '../components/FooterSubsection.vue';
+import HeroSection from '../components/HeroSection.vue';
+import SkillsSection from '../components/SkillsSection.vue';
+import AboutSection from '../components/AboutSection.vue';
 
 export default {
   name: 'PortfolioWebsite',
   components: {
-    SectionSubsection,
-    SectionWrapperSubsection,
-    ContainerWrapperSubsection,
-    DivWrapperSubsection,
-    DivSubsection,
+    HeroSection,
+    AboutSection,
+    SkillsSection,
+    PortfolioSection,
+    ContactSection,
     FooterSubsection,
   },
   data() {
@@ -69,6 +69,16 @@ export default {
   methods: {
     handleScroll() {
       this.isScrolled = window.scrollY > 50;
+    },
+    scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offsetTop = element.offsetTop - 70; // Account for fixed navbar height
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
     }
   }
 };

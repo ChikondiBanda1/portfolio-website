@@ -42,6 +42,7 @@
             <div class="text-wrapper-39">@2025 Chikondi Banda</div>
             <div class="text-wrapper-40">All Rights Reserved.</div>
         </div>
+        <div class="text-wrapper-40">Designed and produced with Figma, Edited in Cursor.</div>
     </footer>
 </template>
 
